@@ -18,6 +18,8 @@ import org.aopalliance.intercept.MethodInvocation;
  * It does not invoke proceed() on the MethodInvocation. 
  * @author Rod Johnson
  * @version $Id$
+ *
+ *
  */
 public class InvokerInterceptor implements MethodInterceptor, ProxyInterceptor {
 

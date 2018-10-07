@@ -1,0 +1,42 @@
+<component name="libraryTable">
+  <library name="ant">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/ant" />
+      <root url="file://$PROJECT_DIR$/lib/aop-alliance" />
+      <root url="file://$PROJECT_DIR$/lib/caucho" />
+      <root url="file://$PROJECT_DIR$/lib/cglib" />
+      <root url="file://$PROJECT_DIR$/lib/clover" />
+      <root url="file://$PROJECT_DIR$/lib/easymock" />
+      <root url="file://$PROJECT_DIR$/lib/hibernate" />
+      <root url="file://$PROJECT_DIR$/lib/itext-pdf" />
+      <root url="file://$PROJECT_DIR$/lib/j2ee" />
+      <root url="file://$PROJECT_DIR$/lib/jdo" />
+      <root url="file://$PROJECT_DIR$/lib/jstl" />
+      <root url="file://$PROJECT_DIR$/lib/junit" />
+      <root url="file://$PROJECT_DIR$/lib/log4j" />
+      <root url="file://$PROJECT_DIR$/lib/mockobjects" />
+      <root url="file://$PROJECT_DIR$/lib/poi" />
+      <root url="file://$PROJECT_DIR$/lib/regexp" />
+      <root url="file://$PROJECT_DIR$/lib/velocity" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/ant" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/aop-alliance" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/caucho" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/cglib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/clover" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/easymock" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/hibernate" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/itext-pdf" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/j2ee" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/jdo" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/jstl" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/junit" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/log4j" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/mockobjects" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/poi" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/regexp" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/velocity" recursive="false" />
+  </library>
+</component>

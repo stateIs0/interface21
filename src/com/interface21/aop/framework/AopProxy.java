@@ -80,6 +80,8 @@ public class AopProxy implements InvocationHandler {
 	
 		// Create a new invocation object
 		// TODO refactor into InvocationFactory?
+		// 创建一个方法拦截器实现. 参数: 代理对象,目标对象, 目标对象方法拦截点,
+		// 每次都会
 		MethodInvocationImpl invocation = new MethodInvocationImpl(proxy,
 		              this.config.getTarget(), method.getDeclaringClass(),
 									method, args,

@@ -11,6 +11,9 @@ import org.aopalliance.intercept.MethodInterceptor;
  * Interface to be implemented by objects that can cause
  * conditional invocation of an Interceptor depending on
  * the method, arguments and attributes passed.
+ *
+ * 是否调用拦截器,取决于条件?
+ *
  * @author Rod Johnson
  * @since 03-Apr-2003
  * @version $Id$
@@ -19,6 +22,7 @@ public interface MethodPointcut {
 
 	/**
 	 * Return the interceptor to run conditionally
+	 * 返回拦截器,有条件的运行.
 	 * @return MethodInterceptor
 	 */
 	MethodInterceptor getInterceptor();

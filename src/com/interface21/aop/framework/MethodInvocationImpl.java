@@ -21,6 +21,7 @@ import org.aopalliance.intercept.MethodInvocation;
 
 
 /**
+ * AOP 联盟
  * Spring implementation of AOP Alliance MethodInvocation interface 
  * @author Rod Johnson
  * @version $Id$
