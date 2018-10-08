@@ -3,6 +3,9 @@ package com.interface21.context;
 /**
  * Interface for objects that are suitable for message resolution,
  * e.g. validation errors.
+ *
+ * 适用于消息解析的对象的接口，例如验证错误。
+ *
  * @author Tony Falabella
  * @see MessageSource#getMessage
  */

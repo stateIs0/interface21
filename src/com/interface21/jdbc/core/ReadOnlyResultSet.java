@@ -37,7 +37,7 @@ import java.util.Calendar;
  * @version $Id$
  * @author Yann Caroff
  */
-public class ReadOnlyResultSet implements ResultSet {
+public class ReadOnlyResultSet  {
   
   /**
    * The ResultSet instance that is actually wrapped

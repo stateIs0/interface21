@@ -161,6 +161,7 @@ public class TransactionInterceptor implements MethodInterceptor, InitializingBe
 		}
 		finally {
 			if (transAtt != null) {
+				// 撤销附件
 				invocation.addAttachment(TRANSACTION_STATUS_ATTACHMENT_NAME, null);
 			}
 		}

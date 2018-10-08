@@ -51,15 +51,23 @@ import com.interface21.util.StringUtils;
  * Partial implementation of ApplicationContext. Doesn't mandate the
  * type of storage used for configuration, but implements common functionality.
  *
+ * ApplicationContext的部分实现。不强制要求用于配置的类型的存储，而是实现通用功能。
+ *
  * <p>This class uses the Template Method design pattern, requiring
  * concrete subclasses to implement protected abstract methods.
  *
+ * 此类使用模板方法设计模式，需要具体子类来实现受保护的抽象方法。
+ *
  * <p>The context options may be supplied as a bean in the default bean factory,
- * with the name "contextOptions".
+ *  * with the name "contextOptions".
+ *
+ *  上下文选项可以作为bean在默认bean工厂中提供，名称为“contextOptions”。
  *
  * <p>A message source may be supplied as a bean in the default bean factory,
  * with the name "messageSource". Else, message resolution is delegated to the
  * parent context.
+ *
+ * 消息源可以作为bean在默认bean工厂中提供，其名称为“messageSource”。否则，将消息解析委托给父上下文。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -163,6 +171,10 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	 * Note that parent shouldn't be changed: it should only be
 	 * set later if it isn't available when an object of this
 	 * class is created.
+	 *
+	 * 子类可以在构造函数之后调用它来设置父级。
+	 * 请注意，不应更改父级：如果在创建此类的对象时它不可用，则应仅稍后进行设置。
+	 *
 	 * @param ac parent context
 	 */
 	protected void setParent(ApplicationContext ac) {
@@ -219,25 +231,39 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 		else
 			logger.info(getBeanDefinitionCount() + " beans defined in ApplicationContext [" + getDisplayName() + "]");
 
+		// 设置BeanFactory的后置处理器
+//		postProcessBeanFactory(beanFactory);
 		// invoke configurers that can override values in the bean definitions
+		// 调用可以覆盖bean定义中的值的配置器 BeanFactoryPostProcessor
 		invokeContextConfigurers();
 
 		// load options bean for this context
+		//为此上下文加载选项bean
 		loadOptions();
 
+		// 注册Bean的后处理器，在Bean创建过程中调用
+//		registerBeanPostProcessors(beanFactory);
 		// initialize message source for this context
+		// 初始化此上下文的消息源
 		initMessageSource();
 
+		// 初始化上下文中的事件机制
+//		initApplicationEventMulticaster();
+
 		// initialize other special beans in specific context subclasses
+		// 初始化特定上下文子类中的其他特殊bean
 		onRefresh();
 
 		// check for listener beans and register them
+		// 检查监听器bean并注册它们
 		refreshListeners();
 
 		// instantiate singletons this late to allow them to access the message source
+		// 最近实例化单例以允许它们访问消息源
 		preInstantiateSingletons();
 
 		// last step: publish respective event
+		// 发布事件
 		publishEvent(new ContextRefreshedEvent(this));
 	}
 
@@ -252,6 +278,9 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	/**
 	 * Instantiate and invoke all registered BeanFactoryPostProcessor beans.
 	 * Must be called before singleton instantiation.
+	 *
+	 * 实例化并调用所有已注册的BeanFactoryPostProcessor bean。 必须在单例实例化之前调用。
+	 *
 	 */
 	private void invokeContextConfigurers() {
 		String[] beanNames = getBeanDefinitionNames(BeanFactoryPostProcessor.class);
@@ -300,6 +329,10 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	 * Invoke the setApplicationContext() callback on all objects
 	 * in the context. This involves instantiating the objects.
 	 * Only singletons will be instantiated eagerly.
+	 *
+	 * 在上下文中的所有对象上调用setApplicationContext（）回调。
+	 * 这涉及实例化对象。 只会热切地实例化单身人士。
+	 *
 	 */
 	private void preInstantiateSingletons() {
 		logger.info("Configuring singleton beans in context");
@@ -536,6 +569,9 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	/**
 	 * Subclasses must implement this method to perform the actual configuration load.
 	 * The method is invoked by refresh before any other initialization work.
+	 *
+	 * 子类必须实现此方法才能执行实际的配置加载。 在任何其他初始化工作之前，通过刷新调用该方法。
+	 *
 	 * @see #refresh
 	 */
 	protected abstract void refreshBeanFactory() throws ApplicationContextException;

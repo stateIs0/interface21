@@ -27,6 +27,7 @@ import com.interface21.core.OrderComparator;
 
 /** 
  * FactoryBean implementation for use to source AOP proxies from a Spring BeanFactory.
+ * FactoryBean实现，用于从Spring BeanFactory中获取AOP代理。
  *
  * <p>Interceptors are identified by a list of bean names in the current bean factory.
  * These beans should be of type Interceptor or MethodPointcut. The last entry in
@@ -146,7 +147,7 @@ public class ProxyFactoryBean extends DefaultProxyConfig implements FactoryBean,
 		for (int i = 0; i < this.interceptorNames.length; i++) {
 			String name = this.interceptorNames[i];
 			logger.debug("Configuring interceptor '" + name + "'");
-			
+			// * 号结束的, 全局拦截器
 			if (name.endsWith(GLOBAL_SUFFIX)) {
 				if (!(this.beanFactory instanceof ListableBeanFactory)) {
 					throw new AopConfigException("Can only use global pointcuts or interceptors with a ListableBeanFactory");
@@ -168,6 +169,7 @@ public class ProxyFactoryBean extends DefaultProxyConfig implements FactoryBean,
 	 * We need to do this every time a new prototype instance is
 	 * returned, to return distinct instances of prototype interfaces
 	 * and pointcuts.
+	 * 从拦截器链刷新命名bean。 我们需要在每次返回新的原型实例时执行此操作，以返回原型接口和切入点的不同实例。
 	 */
 	private void refreshInterceptorChain() {
 		List pointcuts = getMethodPointcuts();
@@ -200,6 +202,7 @@ public class ProxyFactoryBean extends DefaultProxyConfig implements FactoryBean,
 
 	/**
 	 * Add all global interceptors and pointcuts.
+	 * 添加全局拦截器和切入点.
 	 */
 	private void addGlobalInterceptorsAndPointcuts(ListableBeanFactory beanFactory, String prefix) {
 		Collection globalPointcutNames = BeanFactoryUtils.beanNamesIncludingAncestors(MethodPointcut.class, beanFactory);

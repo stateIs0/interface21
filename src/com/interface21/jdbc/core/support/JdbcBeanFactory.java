@@ -12,6 +12,7 @@ import com.interface21.beans.factory.ListableBeanFactory;
 import com.interface21.beans.factory.NoSuchBeanDefinitionException;
 import com.interface21.beans.factory.support.ListableBeanFactoryImpl;
 import com.interface21.jdbc.core.JdbcTemplate;
+import com.interface21.jdbc.core.ReadOnlyResultSet;
 import com.interface21.jdbc.core.RowCallbackHandler;
 
 /**
@@ -57,7 +58,7 @@ public class JdbcBeanFactory implements ListableBeanFactory {
 		ListableBeanFactoryImpl newDelegate =  new ListableBeanFactoryImpl();
 		final Properties props = new Properties();
 		this.jdbcTemplate.query(sql, new RowCallbackHandler() {
-			public void processRow(ResultSet rs) throws SQLException {
+			public void processRow(ReadOnlyResultSet rs) throws SQLException {
 				String beanName = rs.getString(1);
 				String property = rs.getString(2);
 				String value = rs.getString(3);

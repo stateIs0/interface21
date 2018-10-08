@@ -37,6 +37,8 @@ import com.interface21.beans.propertyeditors.StringArrayPropertyEditor;
  * Default implementation of the BeanWrapper interface that should be sufficient
  * for all normal uses. Caches introspection results for efficiency.
  *
+ * BeanWrapper接口的默认实现应足以满足所有正常使用。缓存效率的内省结果。
+ *
  * <p>Note: this class never tries to load a class by name, as this can pose
  * class loading problems in J2EE applications with multiple deployment modules.
  * For example, loading a class by name won't work in some application servers

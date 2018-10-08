@@ -16,6 +16,9 @@ import java.util.EventListener;
  * Interface to be implemented by event listeners.
  * Based on standard java.util base class for Observer
  * design pattern.
+ *
+ * 由事件侦听器实现的接口。 基于Observer 设计模式的标准java.util基类。
+ *
  * @author  Rod Johnson
  */
 public interface ApplicationListener extends EventListener {

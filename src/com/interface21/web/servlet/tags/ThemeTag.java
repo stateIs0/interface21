@@ -9,6 +9,9 @@ import com.interface21.ui.context.Theme;
  * Messages are looked up using the ApplicationContext's ThemeSource,
  * and thus should support internationalization.
  *
+ * 自定义标记，用于在此页面范围内查找主题消息。
+ * 使用ApplicationContext的ThemeSource 查找消息，因此应支持国际化。
+ *
  * <p>Regards a HTML escaping setting, either on this tag instance,
  * the page level, or the web.xml level.
  *

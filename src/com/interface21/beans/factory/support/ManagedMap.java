@@ -10,6 +10,9 @@ import java.util.HashMap;
 /**
  * Tag subclass used to hold managed values, which may
  * include runtime bean references
+ *
+ * 标记子类用于保存托管值，可以包括运行时bean引用
+ *
  * @author Rod Johnson
  * @since 27-May-2003
  * @version $Id$

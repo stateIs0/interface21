@@ -6,6 +6,10 @@ package com.interface21.beans;
  * to validate PropertyValues. If an implementation of this
  * interface is supplied, it will be invoked by a BeanWrapper implementation's
  * setPropertyValues() method.
+ *
+ * 可以通过需要来验证 PropertyValues 的应用程序代码实现的接口。
+ * 如果提供了此接口的实现，它将由 BeanWrapper 实现的 setPropertyValues（）方法调用。
+ *
  * @author  Rod Johnson
  * @version $Revision$ 
  */

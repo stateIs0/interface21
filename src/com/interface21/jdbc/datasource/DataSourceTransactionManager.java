@@ -7,8 +7,6 @@ import javax.sql.DataSource;
 
 import com.interface21.beans.factory.InitializingBean;
 import com.interface21.dao.CleanupFailureDataAccessException;
-import com.interface21.jdbc.datasource.ConnectionHolder;
-import com.interface21.jdbc.datasource.DataSourceUtils;
 import com.interface21.transaction.CannotCreateTransactionException;
 import com.interface21.transaction.InvalidTimeoutException;
 import com.interface21.transaction.TransactionDefinition;

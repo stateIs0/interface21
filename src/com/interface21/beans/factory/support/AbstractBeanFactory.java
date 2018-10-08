@@ -37,8 +37,13 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
 /**
  * Abstract superclass that makes implementing a BeanFactory very easy.
  *
+ * 抽象超类使得实现BeanFactory变得非常容易。
+ *
  * <p>This class uses the <b>Template Method</b> design pattern.
  * Subclasses must implement only the
+ *
+ * 该类使用<b>模板方法</ b>设计模式。 *子类只能实现getBeanDefinition(name)方法
+ *
  * <code>
  * getBeanDefinition(name)
  * </code>
@@ -48,6 +53,10 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * FactoryBean dereferencing, and management of collection properties.
  * It also allows for management of a bean factory hierarchy, 
  * implementing the HierarchicalBeanFactory interface.
+ *
+ *
+ * 此类处理运行时Bean引用的解析， FactoryBean解除引用以及集合属性的管理。 *
+ * 它还允许管理bean工厂层次结构，实现HierarchicalBeanFactory接口。
  *
  * @author Rod Johnson
  * @since 15 April 2001
@@ -471,6 +480,8 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 	 * and/or BeanFactoryAware, and invoking the necessary callback(s) if it does.
 	 * @param bean new bean instance we may need to initialize
 	 * @param name the bean has in the factory. Used for debug output.
+	 *
+	 * 如有必要,请调用生命周期方法
 	 */
 	private void callLifecycleMethodsIfNecessary(Object bean, String name, RootBeanDefinition rbd, BeanWrapper bw)
 	    throws BeansException {
@@ -478,6 +489,7 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 		if (bean instanceof InitializingBean) {
 			logger.debug("Calling afterPropertiesSet() on bean with name '" + name + "'");
 			try {
+				// 1 afterPropertiesSet
 				((InitializingBean) bean).afterPropertiesSet();
 			}
 			catch (Exception ex) {
@@ -487,6 +499,7 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 		
 		if (rbd.getInitMethodName() != null) {
 			logger.debug("Calling custom init method '" + rbd.getInitMethodName() + "' on bean with name '" + name + "'");
+			// 2. init method
 			bw.invoke(rbd.getInitMethodName(), null);
 			// Can throw MethodInvocationException
 		}
@@ -494,6 +507,7 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 		if (bean instanceof BeanFactoryAware) {
 			logger.debug("Calling setBeanFactory() on BeanFactoryAware bean with name '" + name + "'");
 			try {
+				// 3. setBeanFactory
 				((BeanFactoryAware) bean).setBeanFactory(this);
 			}
 			catch (BeansException ex) {
@@ -609,6 +623,10 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 	 * <b>Template Method</b> GoF design pattern.
 	 * <br>Subclasses should normally implement caching, as this method is invoked
 	 * by this class every time a bean is requested.
+	 *
+	 * 此方法必须由具体子类定义，以实现* <b>模板方法</ b> GoF设计模式。 *
+	 * <br>子类通常应该实现缓存，因为每次请求bean时，此类都会调用此方法。
+	 *
 	 * @param beanName name of the bean to find a definition for
 	 * @return the BeanDefinition for this prototype name. Must never return null.
 	 * @throws NoSuchBeanDefinitionException if the bean definition cannot be resolved

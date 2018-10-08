@@ -47,7 +47,7 @@ public class RowCountCallbackHandler implements RowCallbackHandler {
 	 * <p>Subclasses can perform custom extraction or processing
 	 * by overriding the processRow(ResultSet, int) method.
 	 */
-	public final void processRow(ResultSet rs) throws SQLException {
+	public final void processRow(ReadOnlyResultSet rs) throws SQLException {
 		if (rowCount == 0) {
 			ResultSetMetaData rsmd = rs.getMetaData();
 			columnCount = rsmd.getColumnCount();
@@ -59,7 +59,7 @@ public class RowCountCallbackHandler implements RowCallbackHandler {
 			}
 			// Could also get column names
 		}
-		processRow(rs, rowCount++);
+		processRow((ResultSet) rs, rowCount++);
 	}
 
 	/** 

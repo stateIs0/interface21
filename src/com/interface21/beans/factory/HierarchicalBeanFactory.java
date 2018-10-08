@@ -8,6 +8,9 @@ package com.interface21.beans.factory;
 /**
  * Subinterface implemented by bean factories that can be part
  * of a hierarchy.
+ *
+ * 由bean工厂实现的子接口，可以是层次结构的部分。
+ *
  * @author Rod Johnson
  * @since 07-Jul-2003
  * @version $Id$

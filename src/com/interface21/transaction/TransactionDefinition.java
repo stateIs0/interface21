@@ -26,18 +26,24 @@ public interface TransactionDefinition {
 	 * Support a current transaction, create a new one if none exists.
 	 * Analogous to EJB transaction attribute of the same name.
 	 * <p>This is typically the default setting of a transaction definition.
+	 *
+	 * 需要传播
 	 */
 	int PROPAGATION_REQUIRED = 0;
 
 	/**
 	 * Support a current transaction, execute non-transactional if none exists.
 	 * Analogous to EJB transaction attribute of the same name.
+	 *
+	 * 支持传播
 	 */
 	int PROPAGATION_SUPPORTS = 1;
 
 	/**
 	 * Support a current transaction, throw an exception if none exists.
 	 * Analogous to EJB transaction attribute of the same name.
+	 *
+	 * 强制传播
 	 */
 	int PROPAGATION_MANDATORY = 2;
 
@@ -48,12 +54,13 @@ public interface TransactionDefinition {
 	 */
 	int ISOLATION_DEFAULT          = -1;
 
+	// 未提交读
 	int ISOLATION_READ_UNCOMMITTED = Connection.TRANSACTION_READ_UNCOMMITTED;
-
+	// 已提交读
 	int ISOLATION_READ_COMMITTED   = Connection.TRANSACTION_READ_COMMITTED;
-
+	// 可重复读
 	int ISOLATION_REPEATABLE_READ  = Connection.TRANSACTION_REPEATABLE_READ;
-
+	// 串行化
 	int ISOLATION_SERIALIZABLE     = Connection.TRANSACTION_SERIALIZABLE;
 
 	/** Use default timeout of the underlying transaction system */

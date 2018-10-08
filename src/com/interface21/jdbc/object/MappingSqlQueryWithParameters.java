@@ -20,6 +20,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import com.interface21.jdbc.core.ReadOnlyResultSet;
 import com.interface21.jdbc.core.ResultReader;
 
 /**
@@ -114,8 +115,8 @@ public abstract class MappingSqlQueryWithParameters extends SqlQuery {
 			this.context = context;
 		}
 
-		public void processRow(ResultSet rs) throws SQLException {
-			l.add(mapRow(rs, rowNum++, params, context));
+		public void processRow(ReadOnlyResultSet rs) throws SQLException {
+			l.add(mapRow((ResultSet) rs, rowNum++, params, context));
 		}
 
 		public List getResults() {

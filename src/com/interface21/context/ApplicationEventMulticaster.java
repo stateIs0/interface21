@@ -3,6 +3,9 @@ package com.interface21.context;
 /**
  * Subinterface of ApplicationListener to be implemented by
  * listeners that can broadcast events to other listeners.
+ *
+ * ApplicationListener的子接口由侦听器实现，可以将事件广播到其他侦听器
+ *
  * @author Rod Johnson
  */
 public interface ApplicationEventMulticaster extends ApplicationListener {

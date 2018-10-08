@@ -11,6 +11,9 @@ import com.interface21.util.StringUtils;
  * Standalone XML application context, taking the context definition
  * files from the file system or from URLs. Mainly useful for test
  * harnesses, but also for standalone environments.
+ *
+ * 独立的XML应用程序上下文，从文件系统或URL中获取上下文定义文件。主要用于测试线束，也适用于独立环境。
+ *
  * @author Rod Johnson
  * @author Juergen Hoeller
  */

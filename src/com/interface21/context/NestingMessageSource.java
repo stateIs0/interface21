@@ -3,6 +3,9 @@ package com.interface21.context;
 /**
  * Subinterface of MessageSource to be implemented by objects that
  * can resolve messages hierarchically.
+ *
+ * MessageSource的子接口，由可以分层次地解析消息的对象实现。
+ *
  * @author Rod Johnson
  * @version $RevisionId$
  */

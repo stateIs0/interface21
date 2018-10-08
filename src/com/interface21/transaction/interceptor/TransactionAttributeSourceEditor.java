@@ -20,6 +20,9 @@ import com.interface21.beans.propertyeditors.PropertiesEditor;
  * The transaction attribute string must be parseable by the
  * TransactionAttributeEditor in this package.
  *
+ * 可以将String转换为TransactionAttributeSource的属性编辑器。
+ * 事务属性字符串必须由此包中的 TransactionAttributeEditor解析。
+ *
  * <p>Strings are in property syntax, with the form:<br>
  * <code>FQCN.methodName=&lt;transaction attribute string&gt;</code>
  *

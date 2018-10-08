@@ -14,6 +14,9 @@ import java.util.Locale;
 /**
  * Interface to be implemented by objects that can resolve messages.
  * This enables parameterization and internationalization of messages.
+ *
+ * 由可以解析消息的对象实现的接口。 这使消息的参数化和国际化成为可能。
+ *
  * @author Rod Johnson
  */
 public interface MessageSource {
@@ -21,6 +24,9 @@ public interface MessageSource {
 	/**
 	 * Try to resolve the message.Return default message if no message
 	 * was found.
+	 *
+	 * 尝试解决该消息。如果未找到消息，则返回默认消息。
+	 *
 	 * @param code code to lookup up, such as 'calculator.noRateSet'.
 	 * Users of this class are encouraged to base message names
 	 * on the relevant fully qualified class name, thus avoiding

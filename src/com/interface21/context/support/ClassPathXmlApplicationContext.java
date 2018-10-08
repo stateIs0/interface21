@@ -12,10 +12,15 @@ import com.interface21.util.ClassLoaderUtils;
  * files from the classpath. Mainly useful for test harnesses,
  * but also for application contexts embedded within JARs.
  *
+ * 独立的XML应用程序上下文，从类路径中获取上下文定义*文件。主要用于测试工具，也适用于JAR中嵌入的应用程序上下文。
+ *
  * <p>Note: Generally treats (file) paths as class path resources,
  * when using ApplicationContext.getResourceAsStream.
  * Only supports full classpath names including package specification,
  * like "/mypackage/myresource.dat".
+ *
+ * 通常在使用 ApplicationContext.getResourceAsStream时将（文件）路径视为类路径资源。
+ * 仅支持完整的类路径名称，包括包规范，如“/mypackage/myresource.dat”。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

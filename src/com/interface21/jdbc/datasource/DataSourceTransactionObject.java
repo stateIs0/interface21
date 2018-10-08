@@ -1,7 +1,5 @@
 package com.interface21.jdbc.datasource;
 
-import com.interface21.jdbc.datasource.ConnectionHolder;
-
 /**
  * DataSource transaction object, representing a ConnectionHolder.
  * Used as transaction object by DataSourceTransactionManager.

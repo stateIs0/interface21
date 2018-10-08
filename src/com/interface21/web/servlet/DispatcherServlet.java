@@ -336,7 +336,7 @@ public class DispatcherServlet extends FrameworkServlet {
 	    throws ServletException, IOException {
 
 		logger.debug("DispatcherServlet with name '" + getServletName() + "' received request for [" + WebUtils.getRequestUri(request) + "]");
-
+		// 1. 设置属性
 		// Make web application context available
 		request.setAttribute(WEB_APPLICATION_CONTEXT_ATTRIBUTE, getWebApplicationContext());
 
@@ -345,7 +345,7 @@ public class DispatcherServlet extends FrameworkServlet {
 
 		// Make theme resolver available
 		request.setAttribute(THEME_RESOLVER_ATTRIBUTE, this.themeResolver);
-
+		// 2. 找 handler 返回执行链条
 		HandlerExecutionChain mappedHandler = getHandler(request);
 
 		if (mappedHandler == null || mappedHandler.getHandler() == null) {
@@ -356,6 +356,7 @@ public class DispatcherServlet extends FrameworkServlet {
 		}
 
 		// This will throw an exception if no adapter is found
+		// 3. 返回 handler 的适配器
 		HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
 
 		// Send not-modified header for cache control?
@@ -365,8 +366,10 @@ public class DispatcherServlet extends FrameworkServlet {
 
 		// Apply preHandle methods of registered interceptors
 		if (mappedHandler.getInterceptors() != null) {
+			// 4. 循环执行 handler 的 pre 拦截器
 			for (int i = 0; i < mappedHandler.getInterceptors().length; i++) {
 				HandlerInterceptor interceptor = mappedHandler.getInterceptors()[i];
+				// pre 拦截器
 				if (!interceptor.preHandle(request, response, mappedHandler.getHandler())) {
 					return;
 				}
@@ -374,12 +377,15 @@ public class DispatcherServlet extends FrameworkServlet {
 		}
 
 		// Actually invoke the handler
+		// 5. 执行真正的 handler，并返回  ModelAndView(Handler 是个代理对象，可能会执行 AOP )
 		ModelAndView mv = ha.handle(request, response, mappedHandler.getHandler());
 
 		// Apply postHandle methods of registered interceptors
 		if (mappedHandler.getInterceptors() != null) {
+			// 6. 循环执行 handler 的 post 拦截器
 			for (int i = mappedHandler.getInterceptors().length - 1; i >=0 ; i--) {
 				HandlerInterceptor interceptor = mappedHandler.getInterceptors()[i];
+				// post 拦截器
 				interceptor.postHandle(request, response, mappedHandler.getHandler());
 			}
 		}
@@ -389,6 +395,7 @@ public class DispatcherServlet extends FrameworkServlet {
 			logger.debug("Will render view in DispatcherServlet with name '" + getServletName() + "'");
 			Locale locale = this.localeResolver.resolveLocale(request);
 			response.setLocale(locale);
+			// 渲染 modelAndView
 			render(mv, request, response, locale);
 		}
 		else {
@@ -491,6 +498,7 @@ public class DispatcherServlet extends FrameworkServlet {
 		View view = null;
 		if (mv.isReference()) {
 			// We need to resolve this view name
+			// 7. 根据 ModelAndView 信息得到 View 实例
 			view = this.viewResolver.resolveViewName(mv.getViewName(), locale);
 		}
 		else {
@@ -500,6 +508,7 @@ public class DispatcherServlet extends FrameworkServlet {
 		if (view == null) {
 			throw new ServletException("Error in ModelAndView object or View resolution encountered by servlet with name '" + getServletName() + "'. View cannot be null in render with ModelAndView=[" + mv + "]");
 		}
+		// 8. 渲染 View 返回
 		view.render(mv.getModel(), request, response);
 	}
 

@@ -9,6 +9,9 @@ import com.interface21.context.ApplicationContextException;
  * Useful for custom config files targetted at system administrators that
  * override bean properties configured in the application context.
  *
+ * 允许自定义修改应用程序上下文的bean。
+ * 对于以系统管理员为目标的自定义配置文件非常有用 覆盖在应用程序上下文中配置的bean属性。
+ *
  * <p>For reading "beanName.property=value" configuration from a
  * properties file, consider using PropertyResourceConfigurer.
  *

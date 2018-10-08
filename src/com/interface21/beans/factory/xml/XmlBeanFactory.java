@@ -388,6 +388,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 					throw new FatalBeanException("Either 'bean' or 'external' is required for a reference");
 				}
 			}
+			// TODO 注意!!! REF getPropertyValue parsePropertyElement getPropertyValueSubElements
 			return new RuntimeBeanReference(beanName);
 		}
 		else if (ele.getTagName().equals(VALUE_ELEMENT)) {

@@ -16,6 +16,9 @@ import net.sf.hibernate.FlushMode;
  * or from a surrounding Hibernate-intercepted method), the interceptor simply
  * takes part in it.
  *
+ * 此拦截器在方法调用之前将新的Hibernate会话绑定到线程，然后在任何方法结果的情况下关闭并删除它。
+ * 如果已经存在预绑定会话（例如来自HibernateTransactionManager，或来自周围的Hibernate截获方法），拦截器只是参与其中
+ *
  * <p>Application code must retrieve a Hibernate Session via SessionFactoryUtils'
  * getSession method, to be able to detect a thread-bound Session. It is preferable
  * to use getSession with allowCreate=false, as the code relies on the interceptor

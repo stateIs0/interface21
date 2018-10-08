@@ -16,9 +16,13 @@ import java.util.Map;
  * The central interface of the Spring JavaBeans infrastructure.
  * Interface to be implemented by classes that can manipulate Java beans.
  *
+ * Spring JavaBeans基础结构的中央接口。 由可以操作Java bean的类实现的接口。
+ *
  * <p>Implementing classes have the ability to get and set
  * property values (individually or in bulk), get property descriptors
  * and query the readability and writability of properties.
+ *
+ * 实现类能够获取和设置属性值（单独或批量），获取属性描述符并查询属性的可读性和可写性。
  *
  * <p>This interface supports <b>nested properties</b> enabling the setting of
  * properties on subproperties to an unlimited depth.
@@ -34,6 +38,9 @@ import java.util.Map;
  * PropertyChangeListeners and VetoableChangeListeners, without the need for
  * supporting code in the target class. VetoableChangeListeners can veto
  * individual property changes.
+ *
+ * 此接口支持添加标准 JavaBeans API PropertyChangeListeners 和 VetoableChangeListeners 的功能，而无需在目标类中使用支持代码。
+ * VetoableChangeListeners可以否决个别属性更改。
  * 
  * @author Rod Johnson
  * @since 13 April 2001

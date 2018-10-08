@@ -15,6 +15,9 @@ import com.interface21.context.ApplicationContextException;
  * Convenient abstract superclass for ApplicationContext implementations
  * drawing their configuration from XML documents containing bean definitions
  * understood by an XMLBeanFactory.
+ *
+ * ApplicationContext实现的便捷抽象超类 从包含bean定义的XML文档中绘制其配置由XMLBeanFactory理解。
+ *
  * @author Rod Johnson
  * @version $Revision$
  * @see com.interface21.beans.factory.xml.XmlBeanFactory
